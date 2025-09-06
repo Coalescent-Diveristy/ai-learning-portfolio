@@ -1,100 +1,79 @@
-# Script to automatically generate all AI learning notebooks with starter code and exercises, including Week 1 exercises
+import nbformat as nbf
 import os
 
-# Define repo structure
-notebook_structure = {
-    '01_foundations': [
-        '01_python_basics',
-        '02_pandas_numpy',
-        '03_visualization',
-        '04_intro_ml'
+# ----------------------------
+# Define notebook structure
+# ----------------------------
+roadmap = {
+    "week01": [
+        ("01_python_basics.ipynb", "Python Basics", [
+            {"type": "markdown", "content": "## Exercise 1\nPrint `Hello, AI!`"},
+            {"type": "code", "content": "print('Hello, AI!')"},
+            {"type": "markdown", "content": "## Exercise 2\nCreate a variable `x = 5` and print it."},
+            {"type": "code", "content": "x = 5\nprint(x)"}
+        ]),
+        ("02_data_types.ipynb", "Data Types & Variables", [
+            {"type": "markdown", "content": "## Exercise 1\nCreate an integer, float, string, and boolean variable."},
+            {"type": "code", "content": "age = 25\nheight = 5.9\nname = 'Alice'\nis_student = True\nprint(age, height, name, is_student)"}
+        ]),
     ],
-    '02_core_ml': [
-        '01_linear_regression',
-        '02_logistic_regression',
-        '03_decision_trees_random_forests',
-        '04_clustering',
-        '05_feature_engineering',
-        '06_mini_projects'
+    "week02": [
+        ("01_numpy.ipynb", "NumPy Fundamentals", [
+            {"type": "markdown", "content": "## Exercise 1\nCreate a NumPy array of numbers 1–10."},
+            {"type": "code", "content": "import numpy as np\narr = np.arange(1, 11)\nprint(arr)"}
+        ]),
+        ("02_pandas.ipynb", "Pandas for DataFrames", [
+            {"type": "markdown", "content": "## Exercise 1\nLoad `customers.csv` into a pandas DataFrame."},
+            {"type": "code", "content": "import pandas as pd\ndf = pd.read_csv('../datasets/customers.csv')\ndf.head()"}
+        ]),
     ],
-    '03_deep_learning': [
-        '01_neural_networks',
-        '02_cnns',
-        '03_rnns_lstm',
-        '04_pytorch_tensorflow',
-        '05_extended_dl_practice'
-    ],
-    '04_generative_ai': [
-        '01_transformers_basics',
-        '02_text_generation_summarization',
-        '03_chatbot_qa',
-        '04_speech_to_text_whisper'
-    ],
-    '05_capstone': [
-        '01_deployment_basics',
-        '02_capstone_integration',
-        '03_capstone_polishing'
-    ]
+    # You can continue expanding for all 22 weeks...
 }
 
-base_path = 'notebooks'
-os.makedirs(base_path, exist_ok=True)
+# ----------------------------
+# Notebook generator
+# ----------------------------
+def create_notebook(path, title, cells):
+    nb = nbf.v4.new_notebook()
+    nb['cells'] = []
 
-# Week 1 starter code with exercises
-week1_code = """"""
-# 01_python_basics.ipynb
+    # Add title cell
+    nb['cells'].append(nbf.v4.new_markdown_cell(f"# {title}"))
 
-# Week 1: Python Basics
+    # Add content cells
+    for cell in cells:
+        if cell["type"] == "markdown":
+            nb['cells'].append(nbf.v4.new_markdown_cell(cell["content"]))
+        elif cell["type"] == "code":
+            nb['cells'].append(nbf.v4.new_code_cell(cell["content"]))
 
-# Variables
-integer_var = 10
-float_var = 3.14
-string_var = 'Hello AI'
-boolean_var = True
-print(type(integer_var), type(float_var), type(string_var), type(boolean_var))
+    # Write notebook file
+    with open(path, "w", encoding="utf-8") as f:
+        nbf.write(nb, f)
 
-# List and loop
-numbers = [1, 2, 3, 4, 5]
-for n in numbers:
-    print(n**2)
+# ----------------------------
+# Run the generator
+# ----------------------------
+if __name__ == "__main__":
+    os.makedirs("notebooks", exist_ok=True)
+    os.makedirs("datasets", exist_ok=True)
 
-# Function
-s = 'Matthew'
-def greet(name):
-    return f'Hello, {name}!'
-print(greet(s))
+    # placeholder datasets
+    with open("datasets/customers.csv", "w") as f:
+        f.write("id,name,age\n1,Alice,30\n2,Bob,25\n")
 
-# Exercises
-# 1. Create a list of your favorite AI topics and print each with a for loop
-# 2. Write a function that takes a number and returns its factorial
-# 3. Create a dictionary of 3 key-value pairs and print each key and value
-""""""
+    with open("datasets/sales.csv", "w") as f:
+        f.write("order_id,amount\n1001,250\n1002,400\n")
 
-# Generic starter code for other notebooks
-generic_code = """"""
-# {notebook_name}
+    with open("datasets/students.csv", "w") as f:
+        f.write("id,name,grade\n1,John,A\n2,Sara,B\n")
 
-# This notebook contains starter code and exercises for {topic}
+    for week, notebooks in roadmap.items():
+        week_path = os.path.join("notebooks", week)
+        os.makedirs(week_path, exist_ok=True)
 
-# EXAMPLES
-print('Hello AI!')
+        for filename, title, cells in notebooks:
+            notebook_path = os.path.join(week_path, filename)
+            create_notebook(notebook_path, title, cells)
 
-# EXERCISES
-# 1. Exercise 1 description
-# 2. Exercise 2 description
-""""""
-
-# Create directories and notebooks
-for folder, notebooks in notebook_structure.items():
-    folder_path = os.path.join(base_path, folder)
-    os.makedirs(folder_path, exist_ok=True)
-    for nb in notebooks:
-        nb_path = os.path.join(folder_path, nb + '.ipynb')
-        if not os.path.exists(nb_path):
-            with open(nb_path, 'w') as f:
-                if folder == '01_foundations' and nb == '01_python_basics':
-                    f.write(week1_code)
-                else:
-                    f.write(generic_code.replace('{notebook_name}', nb).replace('{topic}', folder))
-
-print('All starter notebooks including Week 1 exercises generated successfully.')
+    print("✅ All notebooks generated successfully!")
