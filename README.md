@@ -1,56 +1,59 @@
-# AI Learning Roadmap 🚀
+# AI Learning Roadmap
 
-Welcome to your **6–12 month AI Learning Roadmap**.  
-This repo contains 22 Jupyter notebooks that take you step by step from Python foundations to advanced AI projects.  
+This roadmap includes 26 notebooks with explanations, demos, and exercises.
 
-Each notebook includes:  
-- 📘 **Detailed learning notes** (theory + concepts)  
-- 💻 **Demo code** (small, working examples)  
-- 📝 **Exercises** (open-ended practice)  
+📌 **Timeline**
 
----
+- Full-time (~30–40 hrs/week): ~4 months
 
-## 📅 Learning Path (22 Weeks)
+- Part-time (~10 hrs/week): ~6–7 months
+
+
+## Contents
 
 ### Foundations
-1. [Python Basics](notebooks/01_python_basics.ipynb)  
-2. [NumPy & Pandas](notebooks/02_numpy_pandas.ipynb)  
-3. [Visualization & Statistics](notebooks/03_visualization_stats.ipynb)  
 
-### Core Machine Learning
-4. [Linear Regression](notebooks/04_linear_regression.ipynb)  
-5. [Logistic Regression](notebooks/05_logistic_regression.ipynb)  
-6. [Decision Trees](notebooks/06_decision_trees.ipynb)  
-7. [Random Forests](notebooks/07_random_forests.ipynb)  
-8. [Support Vector Machines](notebooks/08_svms.ipynb)  
-9. [K-Means Clustering](notebooks/09_kmeans.ipynb)  
+- [Python Basics](notebooks/01_python_basics.ipynb) — Learn the basics of Python: variables, loops, functions, and data types.
+- [NumPy & Pandas](notebooks/02_numpy_pandas.ipynb) — Explore NumPy arrays and Pandas DataFrames for data manipulation.
+- [Visualization & Statistics](notebooks/03_visualization_stats.ipynb) — Learn how to visualize data and understand basic statistics.
 
-### Neural Networks & Deep Learning
-10. [Neural Networks](notebooks/10_neural_networks.ipynb)  
-11. [Convolutional Neural Networks](notebooks/11_cnns.ipynb)  
-12. [Recurrent Neural Networks](notebooks/12_rnns.ipynb)  
-13. [Long Short-Term Memory (LSTMs)](notebooks/13_lstms.ipynb)  
-14. [Transformers](notebooks/14_transformers.ipynb)  
+### Classical Machine Learning
 
-### Natural Language Processing
-15. [NLP Basics](notebooks/15_nlp_basics.ipynb)  
-16. [Word Embeddings](notebooks/16_embeddings.ipynb)  
+- [Linear Regression](notebooks/04_linear_regression.ipynb) — Understand and implement linear regression for prediction tasks.
+- [Logistic Regression](notebooks/05_logistic_regression.ipynb) — Use logistic regression for binary classification problems.
+- [Decision Trees](notebooks/06_decision_trees.ipynb) — Learn how decision trees split data and make predictions.
+- [Random Forests](notebooks/07_random_forests.ipynb) — Use ensembles of decision trees for better performance.
+- [Support Vector Machines](notebooks/08_svms.ipynb) — Learn about SVMs and how they separate classes with hyperplanes.
+- [K-Means Clustering](notebooks/09_kmeans.ipynb) — Cluster data points into groups with K-Means.
+
+### Deep Learning
+
+- [Neural Networks](notebooks/10_neural_networks.ipynb) — Build simple feedforward neural networks.
+- [Convolutional Neural Networks](notebooks/11_cnns.ipynb) — Use CNNs for image classification tasks.
+- [Recurrent Neural Networks](notebooks/12_rnns.ipynb) — Understand RNNs for sequence modeling.
+- [Long Short-Term Memory](notebooks/13_lstms.ipynb) — Learn how LSTMs improve RNNs for longer dependencies.
+- [Transformers](notebooks/14_transformers.ipynb) — Explore transformer models for NLP.
+
+### Large Language Models (LLMs)
+
+- [LLM Basics](notebooks/15_llm_basics.ipynb) — Understand how large language models are built and used.
+- [Using Pretrained LLMs](notebooks/16_pretrained_llms.ipynb) — Leverage Hugging Face and APIs to use pretrained language models.
+- [LLM-Powered Applications](notebooks/17_llm_apps.ipynb) — Build AI apps like chatbots, summarizers, and assistants.
+- [Advanced LLM Techniques](notebooks/18_advanced_llms.ipynb) — Explore prompt engineering, fine-tuning, and retrieval-augmented generation.
+
+### NLP & Embeddings
+
+- [NLP Basics](notebooks/19_nlp_basics.ipynb) — Preprocess and analyze text data.
+- [Word Embeddings](notebooks/20_embeddings.ipynb) — Learn about word2vec, GloVe, and embedding spaces.
 
 ### Advanced Topics
-17. [Generative Adversarial Networks](notebooks/17_gans.ipynb)  
-18. [Reinforcement Learning](notebooks/18_rl.ipynb)  
 
-### Projects & Deployment
-19. [End-to-End ML Project](notebooks/19_end_to_end.ipynb)  
-20. [AI in Production](notebooks/20_ai_production.ipynb)  
-21. [Mini NLP Project](notebooks/21_project_nlp.ipynb)  
-22. [Capstone Project](notebooks/22_capstone.ipynb)  
+- [Generative Adversarial Networks](notebooks/21_gans.ipynb) — Understand GANs and how they generate data.
+- [Reinforcement Learning](notebooks/22_rl.ipynb) — Explore agents, environments, and rewards.
 
----
+### Projects
 
-## 🛠️ How to Use
-
-1. Clone the repo:  
-   ```bash
-   git clone https://github.com/yourusername/ai-learning-roadmap.git
-   cd ai-learning-roadmap
+- [End-to-End ML Project](notebooks/23_end_to_end.ipynb) — Combine skills into a small project.
+- [AI in Production](notebooks/24_ai_production.ipynb) — Learn model saving, loading, and deployment basics.
+- [Mini NLP Project](notebooks/25_project_nlp.ipynb) — Build and evaluate an NLP pipeline.
+- [Capstone Project](notebooks/26_capstone.ipynb) — Do a full end-to-end AI project.
